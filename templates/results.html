@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aadhaar Card Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #3498db; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .download-btn { 
+            display: block; 
+            width: 200px; 
+            margin: 20px auto; 
+            text-align: center; 
+            background-color: #2ecc71; 
+            color: white; 
+            padding: 10px; 
+            text-decoration: none; 
+            border-radius: 5px;
+        }
+        .download-btn:hover { background-color: #27ae60; }
+        .qr-section { margin-top: 30px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Aadhaar Card Details</h1>
+    
+    <h2>English Details</h2>
+    <table>
+        <tr><th>Field</th><th>Value</th></tr>
+        <tr><td>Aadhaar Number</td><td>{{ details.english.aadhaar_no }}</td></tr>
+        <tr><td>Name</td><td>{{ details.english.name }}</td></tr>
+        <tr><td>Date of Birth</td><td>{{ details.english.dob }}</td></tr>
+        <tr><td>Gender</td><td>{{ details.english.gender }}</td></tr>
+        <tr><td>Address</td><td>{{ details.english.address }}</td></tr>
+        <tr><td>Virtual ID (VID)</td><td>{{ details.english.vid }}</td></tr>
+    </table>
+    
+    <h2>हिंदी विवरण</h2>
+    <table>
+        <tr><th>फील्ड</th><th>मूल्य</th></tr>
+        <tr><td>आधार नंबर</td><td>{{ details.hindi.aadhaar_no }}</td></tr>
+        <tr><td>नाम</td><td>{{ details.hindi.name }}</td></tr>
+        <tr><td>जन्म तिथि</td><td>{{ details.hindi.dob }}</td></tr>
+        <tr><td>लिंग</td><td>{{ details.hindi.gender }}</td></tr>
+        <tr><td>पता</td><td>{{ details.hindi.address }}</td></tr>
+        <tr><td>वर्चुअल आईडी (VID)</td><td>{{ details.hindi.vid }}</td></tr>
+    </table>
+    
+    <div class="qr-section">
+        <h3>QR Code Data</h3>
+        <p>{{ details.english.qr_data }}</p>
+        <p><small>Note: Enable QR code processing for more accurate data extraction</small></p>
+    </div>
+    
+    <a href="/download/{{ excel_file }}" class="download-btn">Download Excel Sheet</a>
+</body>
+</html>

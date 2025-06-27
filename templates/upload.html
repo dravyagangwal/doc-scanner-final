@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aadhaar Card Scanner</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; text-align: center; }
+        .error { color: red; }
+        form { margin-top: 30px; }
+        input[type="file"] { margin-bottom: 15px; width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #3498db; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 4px; width: 100%; font-size: 16px; }
+        button:hover { background-color: #2980b9; }
+        .instructions { background-color: #f8f9fa; padding: 15px; border-radius: 4px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Upload Aadhaar Card</h1>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Process</button>
+    </form>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <ul>
+            <li>Upload a clear image of your Aadhaar card </li>
+            <li>Supported formats: JPG, PNG</li>
+            <li>Ensure the image is well-lit and all text is visible</li>
+            <li>For best results, use a high-resolution image (minimum 800px width)</li>
+        </ul>
+    </div>
+</body>
+</html>
